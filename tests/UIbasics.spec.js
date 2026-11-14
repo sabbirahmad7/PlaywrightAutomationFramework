@@ -18,9 +18,11 @@ test.only('First Playwright test',async ({page})=>
    await signIn.click();
    console.log(await page.locator("[style*='block']").textContent('Incorrect'));
    await username.fill('');
-   await username.fill("rahulsheetyacademy");
-   await page.locator("[type='Password']").fill("learning");
+   await username.fill("rahulshettyacademy");
+   await page.locator("[type='Password']").fill("Learning@830$3mK2");
    await signIn.click();
+   await expect(page).toHaveTitle("ProtoCommerce");
+   console.log(await page.title());
 
 });
 // only is for specific group of test 
