@@ -13,6 +13,6 @@ test("Browser4 Context -Validating Error login",async ({page})=>
    // alltextContents do not have automatic wait 
    await page.locator('.card-body b').first().waitFor();
    const tittles = await page.locator('.card-body b').allTextContents();
-   console.log(tittles);
+   console.log("Product" + tittles);
 
 });
