@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test.only('First Playwright test',async ({page})=> 
+test('First Playwright test',async ({page})=> 
 {
     // no order of steps 
     // need to use await 

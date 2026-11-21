@@ -1,12 +1,8 @@
+
 // @ts-check
-import { defineConfig, devices, expect } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-
- export default defineConfig({
+export default defineConfig({
   testDir: './tests',
 
   timeout: 30 * 1000,
@@ -15,10 +11,20 @@ import { defineConfig, devices, expect } from '@playwright/test';
     timeout: 5000,
   },
 
-  reporter: 'html',
+  reporter: [
+    ['list'],
+    ['html', {
+      outputFolder: 'playwright-report',
+      open: 'never',
+    }],
+  ],
 
   use: {
     browserName: 'chromium',
-    headless : false
+    headless: true,
+
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'retain-on-failure',
   },
 });
