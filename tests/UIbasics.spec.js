@@ -108,12 +108,26 @@ test('@Child windows hadl', async ({browser})=>
 
  })
 
+ test('Login page UI Controls',async ({page})=>
+ {
+
+   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+   const userName = page.locator('#username');
+   const signIn = page.locator('#signInBtn');
+   const dropdown = page.locator('select.form-control');
+   await dropdown.selectOption("Consultant");
+   const radiobutton = page.locator('input[id=usertype][value=admin]');
+   radiobutton.check();
+   const termButton = page.locator('#terms');
+   await termButton.check();
+   await expect(radiobutton).toBeChecked();
+   await expect(termButton).toBeChecked();
+   await termButton.uncheck();
+   expect(await termButton.isChecked()).toBeFalsy();
+   await termButton.check();
+   expect(await termButton.isChecked()).toBeTruthy();
+
+ })
+
+
  
-
-
-
-
-
-
-
-
