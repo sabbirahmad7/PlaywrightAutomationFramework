@@ -126,6 +126,10 @@ test('@Child windows hadl', async ({browser})=>
    expect(await termButton.isChecked()).toBeFalsy();
    await termButton.check();
    expect(await termButton.isChecked()).toBeTruthy();
+   await username.fill("rahulshettyacademy");
+   await page.locator("[type='Password']").fill("Learning@830$3mK2");
+   console.log("Page tittle"+ await page.title());
+   // // Testing automatic Jenkins build trigger
 
  })
 
